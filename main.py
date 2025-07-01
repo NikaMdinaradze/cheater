@@ -13,7 +13,7 @@ class MessageRequest(BaseModel):
 class MessageResponse(BaseModel):
     response: str
 
-@app.post("/chat", response_model=MessageResponse)
+@app.post("/", response_model=MessageResponse)
 async def chat_with_gpt(request: MessageRequest):
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
